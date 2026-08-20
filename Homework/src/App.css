@@ -1,0 +1,41 @@
+.on-button {
+    background-color: rgb(25, 135, 84);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    color: white;
+}
+.off-button {
+    background-color: red;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    color: white;
+}
+.email-box {
+    padding: 8px;
+    width: 200px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.password-box {
+    padding: 8px;
+    width: 200px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.login-button{
+    background-color: rgb(0,123,255);
+    border-radius: 4px;
+    padding: 10px;
+    border: none;
+    color: white;
+}
+.signup-button {
+    background-color: rgb(0,123,255);
+    border-radius: 4px;
+    padding: 10px;
+    margin-left: 10px;
+    border:none;
+    color: white
+}
