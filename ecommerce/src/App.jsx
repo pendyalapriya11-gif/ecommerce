@@ -9,9 +9,10 @@ import { TrackingPage } from "./Pages/TrackingPage";
 function App() {
   const [cart, setCart] = useState([]);
   useEffect(() => {
-    axios.get("/api/cart-items").then((response) => {
+    axios.get("/api/cart-items?expand=product").then((response) => {
       setCart(response.data);
     });
+    //we used query parameter to get the details of product also in cart array
   }, []);
   return (
     <Routes>
