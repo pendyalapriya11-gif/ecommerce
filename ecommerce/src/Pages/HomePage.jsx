@@ -4,17 +4,23 @@ import "./HomePage.css";
 import { Header } from "../components/header";
 export function HomePage() {
   const [products,setProducts] = useState([]);
+  const [cart,setCart] = useState([]);
   useEffect(() => {
     axios("http://localhost:3000/api/products").then((response) => {
       setProducts(response.data);
     });
+
+    axios.get("http://localhost:3000/api/cart-items").then((response)=>{
+      setCart(response.data);
+    })
   },[]);
 
   return (
     <>
       <title>Ecommerce Project</title>
       <link rel="icon" type="image/svg+xml" href="home-favicon.png" />
-      <Header />
+      <Header cart={cart}/> 
+      {/* as the cart is inside the header we need to pass into header component */}
       <div className="home-page">
         <div className="products-grid">
           {products.map((product) => {
