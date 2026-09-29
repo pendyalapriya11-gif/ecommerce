@@ -1,9 +1,9 @@
 import "./OrdersPage.css";
 import axios from "axios";
 import { useState, useEffect, Fragment } from "react";
-import { Header } from "../components/header";
+import { Header } from "../../components/header";
 import dayjs from "dayjs";
-import { formatMoney } from "../utils/money";
+import { formatMoney } from "../../utils/money";
 
 window.axios = axios;
 export function OrdersPage({ cart,loadCart }) {

@@ -1,7 +1,7 @@
 import axios from "axios";
 import dayjs from "dayjs";
 import { useState } from "react";
-import { formatMoney } from "../utils/money";
+import { formatMoney } from "../../utils/money";
 import DeliveryOptions from "./DeliveryOptions";
 function CartItem({cartItem, deliveryOptions, loadCart}) {
   const [QuantityUpdate, setQuantityUpdate] = useState(false);

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import "./HomePage.css";
 import axios from "axios";
-import { Product } from "./product";
-import { Header } from "../components/header";
+import { Product } from "../product";
+import { Header } from "../../components/header";
 import { useSearchParams } from "react-router";
 
 
