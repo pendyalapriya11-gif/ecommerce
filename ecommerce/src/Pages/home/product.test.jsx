@@ -10,7 +10,7 @@ vi.mock("axios");
 describe("product component", () => {
   let product ;
   let loadCart ;
-
+  let user;
   beforeEach(()=>{
     product = {
     id: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
@@ -24,7 +24,7 @@ describe("product component", () => {
     keywords: ["socks", "sports", "apparel"],
   }; 
   loadCart = vi.fn();
-
+    user = userEvent.setup();
   });
 
   it("displays the product details correctly", () => {
@@ -52,7 +52,6 @@ describe("product component", () => {
   it("adds a product to the cart", async () => {
     render(<Product product={product} loadCart={loadCart} />);
 
-    const user = userEvent.setup();
     const addToCartButton = screen.getByTestId("add-to-cart-button");
     await user.click(addToCartButton);
 
@@ -64,6 +63,31 @@ describe("product component", () => {
 
     expect(loadCart).toHaveBeenCalled();
   });
+
+  it('to test for the quantity', ()=> {
+
+    render(<Product product={product} loadCart={loadCart}/>)
+    const quantitySelector = screen.getByTestId('quantitySelector');
+    expect(quantitySelector).toHaveValue('1');
+  });
+
+  it('checking userEvent', async ()=> {
+    render(<Product product={product} loadCart={loadCart}/>);
+    const quantitySelector = screen.getByTestId('quantitySelector');
+    await user.selectOptions(quantitySelector,'3');
+    expect(quantitySelector).toHaveValue('3');
+    const addToCartButton = screen.getByTestId("add-to-cart-button");
+    await user.click(addToCartButton);
+
+    expect(axios.post).toHaveBeenCalledWith("/api/cart-items", {
+      productId: "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
+      quantity: 3,
+    });
+    //all these check when we click on add to cart axios.post is runned and gave these values
+
+    expect(loadCart).toHaveBeenCalled();
+  });
+
 });
 //to test this component we need a product component which has two parameters product details and loadCart function which interacts with backend so for testing we take sample one product details and for the loadcart function we created a fake function to safely run the test to check whether the test is correct or not we use screen to display the fakewebpage result
 //getByText() will check the screen if the required text is present or not

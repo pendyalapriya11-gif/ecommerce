@@ -12,4 +12,11 @@ describe("formatMoney", () => {
     expect(formatMoney(1090)).toBe("$10.90");
     expect(formatMoney(100)).toBe("$1.00"); //if one of the test fails all the test is failed
   });
+
+  it("displays 2 decimals", () => {
+    expect(formatMoney(0)).toBe("$0.00");
+  });
+  it("Check for negative numbers", () => {
+    expect(formatMoney(-1090)).toBe("$-10.90");
+  });
 });
