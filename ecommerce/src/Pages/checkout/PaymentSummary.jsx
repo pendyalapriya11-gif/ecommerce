@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useNavigate } from "react-router";
-import { formatMoney } from "../utils/money";
+import { formatMoney } from "../../utils/money";
 function PaymentSummary({ paymentSummary, loadCart }) {
   const navigate = useNavigate();
   const createOrder = async () => {

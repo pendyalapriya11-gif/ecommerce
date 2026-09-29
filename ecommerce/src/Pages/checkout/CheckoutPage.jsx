@@ -2,8 +2,8 @@ import "./CheckoutPage.css";
 import { useState } from "react";
 import { CheckoutHeader } from "./CheckoutHeader";
 import { useEffect } from "react";
-import OrderSummary from "../OrderSummary";
-import PaymentSummary from "../PaymentSummary";
+import OrderSummary from "./OrderSummary";
+import PaymentSummary from "./PaymentSummary";
 import axios from "axios";
 export function CheckoutPage({ cart, loadCart }) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);

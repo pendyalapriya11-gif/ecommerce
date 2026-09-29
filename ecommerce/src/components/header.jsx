@@ -2,6 +2,7 @@ import './header.css'
 import { Link } from 'react-router';
 import { useNavigate } from 'react-router';
 import { useState } from 'react';
+import React from 'react';
 import { useSearchParams } from 'react-router';
 export function Header({cart}) {
   const navigate = useNavigate();

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import "./HomePage.css";
 import axios from "axios";
-import { Product } from "../product";
+import { Product } from "./product";
 import { Header } from "../../components/header";
 import { useSearchParams } from "react-router";
-
+import React from "react";
 
 export function HomePage({ cart, loadCart }) {
   const [searchParams] = useSearchParams();
